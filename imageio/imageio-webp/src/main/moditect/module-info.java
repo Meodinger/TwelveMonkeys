@@ -5,6 +5,8 @@ module com.twelvemonkeys.imageio.webp {
 
     exports com.twelvemonkeys.imageio.plugins.webp;
 
-    provides javax.imageio.spi.ImageReaderSpi
-            with com.twelvemonkeys.imageio.plugins.webp.WebPImageReaderSpi;
+    uses javax.imageio.spi.ImageInputStreamSpi;
+
+    provides javax.imageio.spi.ImageReaderSpi with
+            com.twelvemonkeys.imageio.plugins.webp.WebPImageReaderSpi;
 }

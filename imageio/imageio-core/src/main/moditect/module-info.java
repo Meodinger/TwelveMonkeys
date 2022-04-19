@@ -10,12 +10,9 @@ module com.twelvemonkeys.imageio.core {
     exports com.twelvemonkeys.imageio.util;
     exports com.twelvemonkeys.imageio.spi;
 
-    provides javax.imageio.spi.ImageInputStreamSpi
-            with com.twelvemonkeys.imageio.stream.BufferedFileImageInputStreamSpi;
-    provides javax.imageio.spi.ImageInputStreamSpi
-            with com.twelvemonkeys.imageio.stream.BufferedRAFImageInputStreamSpi;
-
-    // JDK-6986863 was fixed in JDK 17
-    provides javax.imageio.spi.ImageInputStreamSpi
-            with com.twelvemonkeys.imageio.color.ProfileDeferralActivator$Spi;
+    provides javax.imageio.spi.ImageInputStreamSpi with
+            com.twelvemonkeys.imageio.stream.BufferedFileImageInputStreamSpi,
+            com.twelvemonkeys.imageio.stream.BufferedRAFImageInputStreamSpi,
+            // JDK-6986863 was fixed in JDK 17
+            com.twelvemonkeys.imageio.color.ProfileDeferralActivator$Spi;
 }
