@@ -1,5 +1,6 @@
-module com.twelvemonkeys.common.image {
-    requires java.desktop;
+module com.twelvemonkeys.common.lang {
+    requires static java.desktop;
+
     exports com.twelvemonkeys.lang;
     exports com.twelvemonkeys.util;
 }

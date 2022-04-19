@@ -1,6 +1,6 @@
-module com.twelvemonkeys.metadata {
-    requires java.desktop;
-    requires com.twelvemonkeys.core;
+module com.twelvemonkeys.imageio.metadata {
+    requires static java.desktop;
+    requires transitive com.twelvemonkeys.imageio.core;
 
     exports com.twelvemonkeys.imageio.metadata;
     exports com.twelvemonkeys.imageio.metadata.exif;

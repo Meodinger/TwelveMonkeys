@@ -1,8 +1,10 @@
-module com.twelvemonkeys.webp {
-    requires java.desktop;
-    requires com.twelvemonkeys.core;
+module com.twelvemonkeys.imageio.webp {
+    requires static java.desktop;
+    requires transitive com.twelvemonkeys.imageio.core;
+    requires transitive com.twelvemonkeys.imageio.metadata;
 
     exports com.twelvemonkeys.imageio.plugins.webp;
 
-    provides javax.imageio.spi.ImageReaderSpi with com.twelvemonkeys.imageio.plugins.webp.WebPImageReaderSpi;
+    provides javax.imageio.spi.ImageReaderSpi
+            with com.twelvemonkeys.imageio.plugins.webp.WebPImageReaderSpi;
 }
