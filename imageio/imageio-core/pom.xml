@@ -13,6 +13,44 @@
         <project.jpms.module.name>com.twelvemonkeys.imageio.core</project.jpms.module.name>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <jvmVersion>9</jvmVersion>
+                            <modules>
+                                <module>
+                                    <artifact>
+                                        <groupId>${project.groupId}</groupId>
+                                        <artifactId>${project.artifactId}</artifactId>
+                                        <version>${project.version}</version>
+                                    </artifact>
+                                    <moduleInfoFile>
+                                        ${project.build.sourceDirectory}/../moditect/module-info.java
+                                    </moduleInfoFile>
+                                </module>
+                            </modules>
+                            <jdepsExtraArgs>
+                                <arg>--ignore-missing-deps</arg>
+                            </jdepsExtraArgs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>com.twelvemonkeys.common</groupId>

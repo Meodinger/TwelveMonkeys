@@ -14,6 +14,23 @@
         <project.jpms.module.name>com.twelvemonkeys.imageio.bmp</project.jpms.module.name>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>
+                        <!-- compatibility with jdk 8 -->
+                        -XX:+IgnoreUnrecognizedVMOptions
+                        <!-- junit use reflection to run tests -->
+                        --add-exports=java.desktop/com.sun.imageio.plugins.bmp=ALL-UNNAMED
+                    </argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>com.twelvemonkeys.imageio</groupId>
